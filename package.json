@@ -4,15 +4,20 @@
   "description": "ecommerce store with react, shopify polaris, graphql",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "db": "json-server --watch --port 4000 db.json",
+    "server": "node server.js",
+    "graph": "nodemon server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run db\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "vp",
   "license": "ISC",
   "dependencies": {
+    "apollo-server": "^2.18.2",
+    "axios": "^0.20.0",
+    "graphql": "^15.3.0"
+  },
+  "devDependencies": {
     "concurrently": "^5.3.0",
-    "json-server": "^0.16.2"
+    "nodemon": "^2.0.4"
   }
 }
