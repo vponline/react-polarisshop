@@ -1,26 +1,37 @@
 import React from "react"
 import "@shopify/polaris/dist/styles.css"
-import "./App.css"
+import "./App.scss"
+import { BrowserRouter, Switch } from "react-router-dom"
+import enTranslations from "@shopify/polaris/locales/en.json"
+import { AppProvider } from "@shopify/polaris"
 
 import ApolloProvider from "./ApolloProvider"
-import Products from "./components/Products"
+import { ProductProvider } from "./context/product"
+import AppRoute from "./routing/AppRoute"
 
-import { AppProvider, Page, Card, Button } from "@shopify/polaris"
-import enTranslations from "@shopify/polaris/locales/en.json"
+import FrameContainer from "./components/FrameContainer"
+import TopBarComponent from "./components/TopBarComponent"
+import Products from "./components/Products"
+import Landing from "./components/Landing"
+import About from "./components/About"
 
 function App() {
   return (
     <ApolloProvider>
-      <AppProvider i18n={enTranslations}>
-        <Page title="Example app">
-          <Card sectioned>
-            <Products />
-            <Button onClick={() => alert("Button clicked!")}>
-              Example button
-            </Button>
-          </Card>
-        </Page>
-      </AppProvider>
+      <ProductProvider>
+        <BrowserRouter>
+          <Switch>
+            <AppProvider i18n={enTranslations}>
+              {/* <FrameContainer> */}
+              <TopBarComponent />
+              <AppRoute exact path="/" component={Landing} />
+              <AppRoute path="/products" component={Products} />
+              <AppRoute path="/about" component={About} />
+              {/* </FrameContainer> */}
+            </AppProvider>
+          </Switch>
+        </BrowserRouter>
+      </ProductProvider>
     </ApolloProvider>
   )
 }

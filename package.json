@@ -4,10 +4,10 @@
   "description": "ecommerce store with react, shopify polaris, graphql",
   "main": "server.js",
   "scripts": {
-    "server": "node server.js",
-    "graph": "nodemon server.js",
+    "start": "node server.js",
+    "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run start\" \"npm run client\""
   },
   "author": "vp",
   "license": "ISC",

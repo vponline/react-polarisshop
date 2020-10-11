@@ -5,10 +5,12 @@
   "dependencies": {
     "@apollo/client": "^3.2.2",
     "@shopify/polaris": "^5.6.0",
+    "@shopify/polaris-icons": "^4.0.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "graphql": "^15.3.0",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
