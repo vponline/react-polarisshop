@@ -11,6 +11,7 @@ import AppRoute from "./routing/AppRoute"
 
 import FrameContainer from "./components/FrameContainer"
 import TopBarComponent from "./components/TopBarComponent"
+import NavigationComponent from "./components/NavigationComponent"
 import Products from "./components/Products"
 import Landing from "./components/Landing"
 import About from "./components/About"
@@ -38,6 +39,7 @@ function App() {
             <AppProvider theme={theme} i18n={enTranslations}>
               {/* <FrameContainer> */}
               <TopBarComponent />
+              <NavigationComponent />
               <AppRoute exact path="/" component={Landing} />
               <AppRoute path="/products" component={Products} />
               <AppRoute path="/about" component={About} />

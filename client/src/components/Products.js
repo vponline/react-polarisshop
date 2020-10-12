@@ -9,6 +9,7 @@ import {
   Button,
   Image,
 } from "@shopify/polaris"
+import { useState } from "react"
 
 const GET_PRODUCTS = gql`
   query getProducts {
@@ -56,11 +57,23 @@ export const Products = () => {
     onError: (err) => console.log(err),
   })
 
-  // const { loading } = useQuery(GET_PRODUCT_BY_ID, {
-  //   onCompleted: (data) => console.log(data),
-  //   onError: (err) => console.log(err),
-  // })
-  console.log(products)
+  /////product by Id
+  const selectedProduct = products?.find((p) => p.selected === true)
+  const { loadingById } = useQuery(GET_PRODUCT_BY_ID, {
+    onCompleted: (data) => console.log(data),
+    onError: (err) => console.log(err),
+  })
+
+  ///
+
+  const { loadingByCategory } = useQuery(GET_PRODUCT_BY_CATEGORY, {
+    onCompleted: (data) =>
+      dispatch({
+        type: "SET_PRODUCTS_BY_CATEGORY",
+        payload: data.getProductsByCategory,
+      }),
+    onError: (err) => console.log(err),
+  })
 
   let productContent
   if (!products || loading) {
@@ -85,7 +98,7 @@ export const Products = () => {
             },
           }}
           description={product.price + " €"}
-          popoverActions={[{ content: "Dismiss", onAction: () => {} }]}>
+          popoverActions={[{ content: "Help", onAction: () => {} }]}>
           <img
             alt={product.title}
             width="auto"
