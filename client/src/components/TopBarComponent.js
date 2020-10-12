@@ -21,6 +21,8 @@ const TopBarComponent = () => {
   const userMenuActions = [
     {
       items: [
+        { content: "Shopping Cart" },
+        { content: "Account Details" },
         { content: "Account Details" },
         { content: "Payment Information" },
         { content: "Order History" },

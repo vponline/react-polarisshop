@@ -14,14 +14,28 @@ import TopBarComponent from "./components/TopBarComponent"
 import Products from "./components/Products"
 import Landing from "./components/Landing"
 import About from "./components/About"
+import Logo from "./components/img/logo_horizontal_transparent.png"
 
 function App() {
+  const theme = {
+    colors: {
+      topBar: {
+        background: "#ffffffd9",
+      },
+    },
+    logo: {
+      width: 220,
+      topBarSource: Logo,
+      url: "/",
+      accessibilityLabel: "Polaris Shop",
+    },
+  }
   return (
     <ApolloProvider>
       <ProductProvider>
         <BrowserRouter>
           <Switch>
-            <AppProvider i18n={enTranslations}>
+            <AppProvider theme={theme} i18n={enTranslations}>
               {/* <FrameContainer> */}
               <TopBarComponent />
               <AppRoute exact path="/" component={Landing} />

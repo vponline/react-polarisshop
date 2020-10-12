@@ -71,7 +71,6 @@ export const Products = () => {
     productContent = products.map((product) => {
       return (
         <MediaCard
-          sectioned
           title={product.title}
           primaryAction={{
             content: "Add to cart",
