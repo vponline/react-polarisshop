@@ -22,13 +22,21 @@ const productReducer = (state, action) => {
         ...state,
         products: action.payload,
       }
+    case "SET_SELECTED_CATEGORY":
+      return {
+        ...state,
+        selectedCategory: action.payload,
+      }
     default:
       throw new Error(`Unknown action type: ${action.type}`)
   }
 }
 
 export const ProductProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(productReducer, { products: null })
+  const [state, dispatch] = useReducer(productReducer, {
+    products: null,
+    selectedCategory: "all products",
+  })
 
   return (
     <ProductDispatchContext.Provider value={dispatch}>

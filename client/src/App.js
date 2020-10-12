@@ -43,6 +43,7 @@ function App() {
               <AppRoute exact path="/" component={Landing} />
               <AppRoute path="/products" component={Products} />
               <AppRoute path="/about" component={About} />
+              <AppRoute path="/dashboard" component={FrameContainer} />
               {/* </FrameContainer> */}
             </AppProvider>
           </Switch>

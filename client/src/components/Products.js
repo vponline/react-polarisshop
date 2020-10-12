@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 import { gql, useQuery } from "@apollo/client"
 import { useProductDispatch, useProductState } from "../context/product"
 import {
+  Layout,
   Page,
   Card,
   MediaCard,
@@ -9,7 +10,7 @@ import {
   Button,
   Image,
 } from "@shopify/polaris"
-import { useState } from "react"
+import CategoryComponent from "./CategoryComponent"
 
 const GET_PRODUCTS = gql`
   query getProducts {
@@ -49,7 +50,7 @@ const GET_PRODUCT_BY_CATEGORY = gql`
 
 export const Products = () => {
   const dispatch = useProductDispatch()
-  const { products } = useProductState()
+  const { products, selectedCategory } = useProductState()
 
   const { loading } = useQuery(GET_PRODUCTS, {
     onCompleted: (data) =>
@@ -82,40 +83,77 @@ export const Products = () => {
     productContent = <p>No products available yet</p>
   } else if (products.length > 0) {
     productContent = products.map((product) => {
-      return (
-        <MediaCard
-          title={product.title}
-          primaryAction={{
-            content: "Add to cart",
-            onAction: () => {
-              alert("Product added to cart!")
-            },
-          }}
-          secondaryAction={{
-            content: "Add to wishlist",
-            onAction: () => {
-              alert("Added to wishlist!")
-            },
-          }}
-          description={product.price + " €"}
-          popoverActions={[{ content: "Help", onAction: () => {} }]}>
-          <img
-            alt={product.title}
-            width="auto"
-            height="200px"
-            style={{ objectFit: "cover", objectPosition: "center" }}
-            src={product.image}
-          />
-        </MediaCard>
-      )
+      if (selectedCategory === "all products") {
+        return (
+          <MediaCard
+            title={product.title}
+            primaryAction={{
+              content: "Add to cart",
+              onAction: () => {
+                alert("Product added to cart!")
+              },
+            }}
+            secondaryAction={{
+              content: "Add to wishlist",
+              onAction: () => {
+                alert("Added to wishlist!")
+              },
+            }}
+            description={product.price + " €"}
+            popoverActions={[{ content: "Help", onAction: () => {} }]}>
+            <img
+              alt={product.title}
+              width="auto"
+              height="200px"
+              style={{ objectFit: "cover", objectPosition: "center" }}
+              src={product.image}
+            />
+          </MediaCard>
+        )
+      }
+      if (product.category === selectedCategory) {
+        return (
+          <MediaCard
+            title={product.title}
+            primaryAction={{
+              content: "Add to cart",
+              onAction: () => {
+                alert("Product added to cart!")
+              },
+            }}
+            secondaryAction={{
+              content: "Add to wishlist",
+              onAction: () => {
+                alert("Added to wishlist!")
+              },
+            }}
+            description={product.price + " €"}
+            popoverActions={[{ content: "Help", onAction: () => {} }]}>
+            <img
+              alt={product.title}
+              width="auto"
+              height="200px"
+              style={{ objectFit: "cover", objectPosition: "center" }}
+              src={product.image}
+            />
+          </MediaCard>
+        )
+      }
     })
   }
 
   return (
     <Page title="Products Page">
-      {/* <Card sectioned> */}
-      {productContent}
-      {/* </Card> */}
+      <Layout>
+        <Layout.Section>
+          <CategoryComponent />
+        </Layout.Section>
+        <Layout.Section>
+          {/* <Card sectioned> */}
+          {productContent}
+          {/* </Card> */}
+        </Layout.Section>
+      </Layout>
     </Page>
   )
 }
