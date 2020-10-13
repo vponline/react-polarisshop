@@ -8,6 +8,6 @@ const server = new ApolloServer({
   resolvers,
 })
 
-server.listen().then(({ port }) => {
-  console.log(`Server running on port ${port}`)
+server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
+  console.log(`Server running on port ${url}`)
 })
