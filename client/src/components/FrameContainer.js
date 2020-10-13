@@ -1,7 +1,6 @@
-import React, { useState, useCallback } from "react"
+import React from "react"
 import { Frame } from "@shopify/polaris"
 import TopBarComponent from "./TopBarComponent"
-import NavigationComponent from "./NavigationComponent"
 import NavigationSideBar from "./NavigationSideBar"
 
 const FrameContainer = () => {

@@ -11,6 +11,7 @@ module.exports = gql`
   }
   type Query {
     getProducts: [Product]!
+    getLatestProducts: [Product]!
     getProductById(id: String!): Product!
     getProductByCategory(category: String!): [Product]!
   }

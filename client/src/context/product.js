@@ -4,7 +4,7 @@ const ProductStateContext = createContext()
 const ProductDispatchContext = createContext()
 
 const productReducer = (state, action) => {
-  const { id, title, price, description, category, image } = action.payload
+  // const { id, title, price, description, category, image } = action.payload
 
   switch (action.type) {
     case "SET_PRODUCTS":

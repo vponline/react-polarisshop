@@ -30,5 +30,15 @@ module.exports = {
         console.log(err)
       }
     },
+    getLatestProducts: () => {
+      try {
+        const latestProducts = db.products
+          .slice(Math.max(db.products.length - 3, 0))
+          .reverse()
+        return latestProducts
+      } catch (err) {
+        console.log(err)
+      }
+    },
   },
 }

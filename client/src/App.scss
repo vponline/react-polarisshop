@@ -1,6 +1,6 @@
 :root {
-  --p-decorative-three-surface: rgba(0, 0, 255, 0.2);
-  --landing-bg: #eeeeed;
+  // --p-decorative-three-surface: rgba(0, 0, 255, 0.2);
+  --landing-bg: rgb(255, 255, 253);
 }
 
 img {
@@ -10,6 +10,7 @@ img {
 
 a {
   text-decoration: none;
+  font-size: 17px;
 }
 
 .Polaris-TopBar {
@@ -18,23 +19,25 @@ a {
 
   .Polaris-TopBar-Menu__ActivatorWrapper,
   .Polaris-TopBar-Menu__Activator {
-    background-color: #aeaee149;
+    //background-color: #aeaee149;
     border-radius: 3px;
     margin: 0 auto;
     height: 100%;
+
     &:hover {
-      background-color: #aeaee1b3;
+      background-color: #ebebeeb3;
     }
   }
 
   .Polaris-TopBar__LogoContainer {
     border-radius: 3px;
-    background-color: #aeaee149;
+
+    //background-color: #aeaee149;
     // margin: 2rem 0 0 3rem;
     &:hover {
       transition: all 0.5s ease-in-out;
       transform: scale(1.05);
-      background-color: #aeaee1b3;
+      //background-color: #aeaee1b3;
     }
   }
 }
@@ -42,22 +45,28 @@ a {
 .nav {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  background-color: #aeaee1ad;
+  justify-content: space-evenly;
   padding: 10px 0;
+  margin-bottom: 2rem;
 
-  button {
-    // margin: 0 10px;
+  a {
+    color: black;
+  }
+
+  .active-link {
+    font-weight: 500;
+    color: #ffb549;
   }
 }
 
+
 .landing-container {
-  background-color: var(--landing-bg);
+  //background-color: var(--landing-bg);
   display: flex;
 }
 
 .landing-banner {
-  width: 50vw;
+  width: 60vw;
   // max-height: 50vh;
 }
 
@@ -67,20 +76,49 @@ a {
   text-align: center;
   animation: loadshadow 2s forwards;
 
+  .landing-button {
+    &:hover {
+      transition: background-color 0.2s ease-in-out;
+      background-color: rgba(245, 192, 114, 0.2);
+    }
+  }
+
+  .Polaris-Icon {
+    display: inline-block;
+    animation: arrow-jump 1s infinite;
+    vertical-align: bottom;
+    /* IE 10+, Fx 29+ */
+  }
+
+  @keyframes arrow-jump {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(10px);
+    }
+  }
+
   div {
     background-color: var(--landing-bg);
   }
+
   .Polaris-Card {
-    // outline: none;
-    // box-shadow: none;
+    outline: none;
+    box-shadow: none;
   }
+
   h2 {
     font-size: large;
     line-height: normal;
   }
+
   a {
     text-decoration: none;
   }
+
   .Polaris-Button {
     padding: 0.5rem 0.2rem;
   }
@@ -90,11 +128,18 @@ a {
   from {
     box-shadow: none;
   }
+
   to {
-    box-shadow: 30px 30px 2px 1px rgba(0, 0, 255, 0.2);
+    box-shadow: 30px 30px 2px 1px rgba(79, 191, 222, 0.5);
   }
 }
 
 .landing-banner div {
   background-color: var(--landing-bg);
+}
+
+.videoTag {
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
 }

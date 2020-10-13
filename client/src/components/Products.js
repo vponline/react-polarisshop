@@ -1,17 +1,10 @@
 import React, { useState, useCallback } from "react"
 import { gql, useQuery } from "@apollo/client"
 import { useProductDispatch, useProductState } from "../context/product"
-import {
-  Layout,
-  Page,
-  Card,
-  MediaCard,
-  Thumbnail,
-  Button,
-  Image,
-} from "@shopify/polaris"
+import { Layout, Page, MediaCard } from "@shopify/polaris"
 import CategoryComponent from "./CategoryComponent"
 import Product from "./Product"
+import LoadingComponent from "./LoadingComponent"
 
 const GET_PRODUCTS = gql`
   query getProducts {
@@ -70,7 +63,7 @@ export const Products = () => {
 
   let productContent
   if (!products || loading) {
-    productContent = <p>Loading...</p>
+    productContent = <LoadingComponent />
   } else if (products.length === 0) {
     productContent = <p>No products available yet</p>
   } else if (products.length > 0) {
@@ -105,7 +98,7 @@ export const Products = () => {
             title={product.title}
             primaryAction={{
               content: "View Details",
-              onAction: handleChange,
+              onAction: () => handleChange(product.id),
             }}
             secondaryAction={{
               content: "Add to wishlist",

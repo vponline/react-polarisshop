@@ -21,11 +21,11 @@ function App() {
   const theme = {
     colors: {
       topBar: {
-        background: "#ffffffd9",
+        //background: "#ffffffff",
       },
     },
     logo: {
-      width: 220,
+      width: 150,
       topBarSource: Logo,
       url: "/",
       accessibilityLabel: "Polaris Shop",
@@ -43,7 +43,6 @@ function App() {
               <AppRoute exact path="/" component={Landing} />
               <AppRoute path="/products" component={Products} />
               <AppRoute path="/about" component={About} />
-              <AppRoute path="/dashboard" component={FrameContainer} />
               {/* </FrameContainer> */}
             </AppProvider>
           </Switch>

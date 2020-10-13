@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react"
 import { Card, Tabs } from "@shopify/polaris"
-import { useProductDispatch, useProductState } from "../context/product"
+import { useProductDispatch } from "../context/product"
 
 const CategoryComponent = () => {
   const dispatch = useProductDispatch()
@@ -44,7 +44,11 @@ const CategoryComponent = () => {
   ]
   return (
     <Card>
-      <Tabs tabs={tabs} selected={selected} onSelect={handleTabChange}></Tabs>
+      <Tabs
+        tabs={tabs}
+        selected={selected}
+        onSelect={handleTabChange}
+        fitted></Tabs>
     </Card>
   )
 }
