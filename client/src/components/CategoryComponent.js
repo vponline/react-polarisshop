@@ -4,7 +4,7 @@ import { useProductDispatch } from "../context/product"
 
 const CategoryComponent = () => {
   const dispatch = useProductDispatch()
-  const [selected, setSelected] = useState()
+  const [selected, setSelected] = useState(0)
 
   const handleTabChange = useCallback((selectedTabIndex) => {
     setSelected(selectedTabIndex)

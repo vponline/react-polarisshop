@@ -1,5 +1,4 @@
 import React from "react"
-
 import { Card, Icon } from "@shopify/polaris"
 import { Link } from "react-router-dom"
 import { ChevronRightMinor } from "@shopify/polaris-icons"
@@ -8,6 +7,7 @@ const LandingBanner = () => {
   return (
     <div className="landing-container">
       <img
+        alt="landing-img"
         src="https://images.unsplash.com/photo-1508427953056-b00b8d78ebf5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
         className="landing-banner"
       />

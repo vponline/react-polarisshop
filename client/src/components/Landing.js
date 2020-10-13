@@ -3,6 +3,7 @@ import { gql, useQuery } from "@apollo/client"
 import { Page, Layout, MediaCard } from "@shopify/polaris"
 import LandingBanner from "./LandingBanner"
 import LoadingComponent from "./LoadingComponent"
+import { useHistory } from "react-router-dom"
 
 const GET_LATEST_PRODUCTS = gql`
   query getLatestProducts {
@@ -19,6 +20,7 @@ const GET_LATEST_PRODUCTS = gql`
 
 const Landing = () => {
   const [landingProducts, setLandingProducts] = useState()
+  const history = useHistory()
 
   const { loading } = useQuery(GET_LATEST_PRODUCTS, {
     onCompleted: (data) => {
@@ -34,13 +36,13 @@ const Landing = () => {
     landingProductsContent = <p>No products available yet</p>
   } else if (landingProducts.length > 0) {
     landingProductsContent = landingProducts.map((product) => (
-      <Layout.Section oneThird>
+      <Layout.Section key={product.id} oneThird>
         <MediaCard
           portrait
           title={product.title}
           primaryAction={{
-            content: "View Details",
-            //   onAction: () => handleChange(product.id),
+            content: "Go to Products",
+            onAction: () => history.push("/products"),
           }}
           description={product.price + " €"}>
           <img

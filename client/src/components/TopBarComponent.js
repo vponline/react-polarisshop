@@ -1,17 +1,25 @@
 import React, { useState, useCallback } from "react"
-import { TopBar } from "@shopify/polaris"
+import { Link } from "react-router-dom"
+import { TopBar, VisuallyHidden, Icon } from "@shopify/polaris"
+import { HomeMajor } from "@shopify/polaris-icons"
 
 const TopBarComponent = () => {
-  const [mobileNavigationActive, setMobileNavigationActive] = useState(false)
   const [userMenuActive, setUserMenuActive] = useState(false)
+  // const [mobileNavigationActive, setMobileNavigationActive] = useState(false)
+  // const [isSecondaryMenuOpen, setIsSecondaryMenuOpen] = useState(false)
 
-  const toggleMobileNavigationActive = useCallback(
-    () =>
-      setMobileNavigationActive(
-        (mobileNavigationActive) => !mobileNavigationActive
-      ),
-    []
-  )
+  // const toggleIsSecondaryMenuOpen = useCallback(
+  //   () => setIsSecondaryMenuOpen((isSecondaryMenuOpen) => !isSecondaryMenuOpen),
+  //   []
+  // )
+
+  // const toggleMobileNavigationActive = useCallback(
+  //   () =>
+  //     setMobileNavigationActive(
+  //       (mobileNavigationActive) => !mobileNavigationActive
+  //     ),
+  //   []
+  // )
 
   const toggleUserMenuActive = useCallback(
     () => setUserMenuActive((userMenuActive) => !userMenuActive),
@@ -42,15 +50,28 @@ const TopBarComponent = () => {
     />
   )
 
+  const secondaryMenuMarkup = (
+    <TopBar.Menu
+      activatorContent={
+        <Link to="/">
+          <Icon className="home-icon" source={HomeMajor} />
+          <VisuallyHidden>Home</VisuallyHidden>
+        </Link>
+      }
+    />
+  )
+
   return (
     <TopBar
-      showNavigationToggle
+      // showNavigationToggle
       userMenu={userMenuMarkup}
+      secondaryMenu={secondaryMenuMarkup}
       // searchResultsVisible={searchActive}
       // searchField={searchFieldMarkup}
       // searchResults={searchResultsMarkup}
       // onSearchResultsDismiss={handleSearchResultsDismiss}
-      onNavigationToggle={toggleMobileNavigationActive}></TopBar>
+      // onNavigationToggle={toggleMobileNavigationActive}
+    ></TopBar>
   )
 }
 

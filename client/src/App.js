@@ -9,7 +9,7 @@ import ApolloProvider from "./ApolloProvider"
 import { ProductProvider } from "./context/product"
 import AppRoute from "./routing/AppRoute"
 
-import FrameContainer from "./components/FrameContainer"
+// import FrameContainer from "./components/FrameContainer"
 import TopBarComponent from "./components/TopBarComponent"
 import NavigationComponent from "./components/NavigationComponent"
 import Products from "./components/Products"

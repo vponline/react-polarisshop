@@ -71,6 +71,7 @@ export const Products = () => {
       if (selectedCategory === "all products") {
         return (
           <MediaCard
+            key={product.id}
             title={product.title}
             primaryAction={{
               content: "View Details",
@@ -95,6 +96,7 @@ export const Products = () => {
       if (product.category === selectedCategory) {
         return (
           <MediaCard
+            key={product.id}
             title={product.title}
             primaryAction={{
               content: "View Details",
