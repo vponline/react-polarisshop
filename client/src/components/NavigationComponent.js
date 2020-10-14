@@ -7,6 +7,9 @@ const NavigationComponent = () => {
       <NavLink activeClassName="active-link" to="/products">
         Products
       </NavLink>
+      <NavLink activeClassName="active-link" to="/dashboard">
+        Dashboard
+      </NavLink>
       <NavLink activeClassName="active-link" to="/about">
         About Us
       </NavLink>

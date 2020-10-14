@@ -81,7 +81,12 @@ export const Products = () => {
               content: "Add to wishlist",
               // onAction: handleChange,
             }}
-            description={product.price + " €"}
+            description={
+              product.price.toLocaleString("en-US", {
+                maximumFractionDigits: 2,
+                minimumFractionDigits: 2,
+              }) + " €"
+            }
             popoverActions={[{ content: "Help", onAction: () => {} }]}>
             <img
               alt={product.title}
@@ -106,7 +111,12 @@ export const Products = () => {
               content: "Add to wishlist",
               // onAction:
             }}
-            description={product.price + " €"}
+            description={
+              product.price.toLocaleString("en-US", {
+                maximumFractionDigits: 2,
+                minimumFractionDigits: 2,
+              }) + " €"
+            }
             popoverActions={[{ content: "Help", onAction: () => {} }]}>
             <img
               alt={product.title}

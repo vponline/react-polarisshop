@@ -14,6 +14,7 @@ import TopBarComponent from "./components/TopBarComponent"
 import NavigationComponent from "./components/NavigationComponent"
 import Products from "./components/Products"
 import Landing from "./components/Landing"
+import Dashboard from "./components/Dashboard"
 import About from "./components/About"
 import Logo from "./components/img/logo_horizontal_transparent.png"
 
@@ -42,6 +43,7 @@ function App() {
               <NavigationComponent />
               <AppRoute exact path="/" component={Landing} />
               <AppRoute path="/products" component={Products} />
+              <AppRoute path="/dashboard" component={Dashboard} />
               <AppRoute path="/about" component={About} />
               {/* </FrameContainer> */}
             </AppProvider>

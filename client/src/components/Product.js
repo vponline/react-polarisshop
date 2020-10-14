@@ -15,7 +15,7 @@ const Product = ({ handleChange, active, handleClose, selectedProduct }) => {
     selectedProductContent = products.map((product) => {
       if (product.id === selectedProduct) {
         return (
-          <div style={{}}>
+          <div key={product.id} style={{}}>
             <Modal
               // activator={activator}
               open={active}
@@ -42,7 +42,12 @@ const Product = ({ handleChange, active, handleClose, selectedProduct }) => {
                   />
                   <div>
                     <Heading>Price: </Heading>
-                    <span>{product.price + " €"}</span>
+                    <span>
+                      {product.price.toLocaleString("en-US", {
+                        maximumFractionDigits: 2,
+                        minimumFractionDigits: 2,
+                      }) + " €"}
+                    </span>
                   </div>
                   <div>
                     <Heading>Description</Heading>

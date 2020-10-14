@@ -44,7 +44,12 @@ const Landing = () => {
             content: "Go to Products",
             onAction: () => history.push("/products"),
           }}
-          description={product.price + " €"}>
+          description={
+            product.price.toLocaleString("en-US", {
+              maximumFractionDigits: 2,
+              minimumFractionDigits: 2,
+            }) + " €"
+          }>
           <img
             alt={product.title}
             width="auto"

@@ -4,9 +4,10 @@ module.exports = gql`
   type Product {
     id: String!
     title: String!
-    price: String!
+    price: Float!
     description: String!
     category: String!
+    quantity: Float!
     image: String!
   }
   type Query {
