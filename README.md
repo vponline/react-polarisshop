@@ -10,4 +10,5 @@ Live demo: https://thawing-wildwood-21613.herokuapp.com/
 <img src="./screenshots/landing.JPG" width="700" />
 <img src="./screenshots/products.JPG" width="700" />
 <img src="./screenshots/product.JPG" width="700" />
+<img src="./screenshots/dashboard.JPG" width="700" />
 <img src="./screenshots/about.JPG" width="700" />
